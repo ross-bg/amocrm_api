@@ -90,6 +90,6 @@ class User(object):
 
     @staticmethod
     def get_one(array, values):
-        filter_func = lambda _: _.login in values or _.name in values or _.id in values
+        filter_func = lambda _: _.login in values or _.name in values or "%s" % _.id in values
         match = [user for user in array if filter_func(user)]
         return match.pop() if match else None

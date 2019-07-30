@@ -230,7 +230,7 @@ class CustomField(object):
             custom_field_info = instance.objects._custom_fields[self.custom_field]
             self._id = _id = custom_field_info['id']
             _data = list(_data.values()) if isinstance(_data, dict) else _data
-            _data = [item['values'] for item in _data if item['id'] == _id]
+            _data = [item['values'] for item in _data if item['id'] == int(_id)]
 
             _data = _data[-1] if _data else None
             _data = list(_data.values()) if isinstance(_data, dict) else _data
